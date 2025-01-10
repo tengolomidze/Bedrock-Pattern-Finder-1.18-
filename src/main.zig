@@ -1,30 +1,14 @@
 const std = @import("std");
 const bedrock = @import("bedrock.zig");
 
-// IF YOU WANT TO CHANGE THE PATTERN, DO THAT HERE!
-// Layers along Y, rows along Z, columns along X
-// const pattern: []const []const []const ?bedrock.Block = &.{&.{
-//     &.{ .other, .other, .other, .other, .bedrock, .other, .other },
-//     &.{ .other, .other, .bedrock, .other, .other, .other, .other },
-//     &.{ .other, .other, .other, .bedrock, .other, .other, .bedrock },
-    
-//     &.{ .other, .bedrock, .other, .other, .bedrock, .other, .other },
-//     &.{ .bedrock, .other, .other, .bedrock, .other, .other, .other },
-//     &.{ .other, .other, .other, .other, .other, .other, .other },
-//     &.{ .other, .bedrock, .other, .other, .other, .other, .other },
-//     &.{ .bedrock, .bedrock, .other, .bedrock, .other, .other, .other },
-// }};
+//.bedrock
+//.other
+//.unknown
 
 const pattern: []const []const []const ?bedrock.Block = &.{&.{
-    &.{ .other, .other, .other, .other, .bedrock, .other, .other },
-    &.{ .other, .other, .bedrock, .other, .other, .other, .other },
-    &.{ .other, .other, .other, .bedrock, .other, .other, .bedrock },
-    
-    &.{ .other, .bedrock, .other, .other, .bedrock, .other, .other },
-    &.{ .bedrock, .other, .other, .bedrock, .other, .other, .other },
-    &.{ .other, .other, .other, .other, .other, .other, .other },
-    &.{ .other, .bedrock, .other, .other, .other, .other, .other },
-    &.{ .bedrock, .bedrock, .other, .bedrock, .other, .other, .other },
+    &.{ .bedrock, .other, .other },
+    &.{ .bedrock, .bedrock, .bedrock },
+    &.{ .unknown, .other, .bedrock },
 }};
 
 //        -Z
@@ -33,8 +17,8 @@ const pattern: []const []const []const ?bedrock.Block = &.{&.{
 //
 //        +Z
 
-const seed: i64 = 8809845658733832902;
-const range: i32 = 200000;
+const seed: i64 = 0;
+const range: i32 = 2000;
 const threadN: i32 = 4;
 
 pub fn main() anyerror!void {
